@@ -238,11 +238,13 @@ public class CameraForm extends javax.swing.JFrame {
 
     private void lbl_imgContainerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_imgContainerMouseClicked
         // TODO add your handling code here:
+        System.out.println("Capturing Image");
         tts.speak("Capturing Image");
         try {
             //cam.takeStill("imgbuff.jpg");
             Process captureProcess = Runtime.getRuntime().exec("/home/pi/Documents/Brailleant/capture.sh");
             captureProcess.waitFor();
+            System.out.println("Image Captured");
             setImage(Global.CAMERA_IMAGEBUFF_DIR);
             tts.speak("Image Captured");
         } catch (Exception e) {
