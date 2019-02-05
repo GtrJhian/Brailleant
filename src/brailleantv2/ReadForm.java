@@ -126,6 +126,12 @@ public class ReadForm extends javax.swing.JFrame {
     }
     
     public void initPort(){
+        
+        for(SerialPort port : SerialPort.getCommPorts()){
+            System.out.println("Port Name: "+port.getDescriptivePortName());
+            System.out.println("Baud Rate: "+port.getBaudRate());
+            System.out.println("===============================");
+        }
         port = SerialPort.getCommPort("ttyACM0");
         port.openPort();
         port.addDataListener(new SerialPortDataListener() {
