@@ -240,7 +240,9 @@ public class CameraForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         tts.speak("Capturing Image");
         try {
-            cam.takeStill("imgbuff.jpg");
+            //cam.takeStill("imgbuff.jpg");
+            Process captureProcess = Runtime.getRuntime().exec("/home/pi/Documents/Brailleant/capture.sh");
+            captureProcess.waitFor();
             setImage(Global.CAMERA_IMAGEBUFF_DIR);
             tts.speak("Image Captured");
         } catch (Exception e) {
